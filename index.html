@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Puertas Automáticas Qro - Instalación y Mantenimiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#122234",
+                        "surface-container": "#ebeef0",
+                        "surface-container-low": "#f1f4f6",
+                        "on-tertiary-container": "#91a0b7",
+                        "on-tertiary-fixed": "#0d1c2e",
+                        "on-secondary-container": "#167249",
+                        "secondary-container": "#9ff5c1",
+                        "primary": "#1A365D",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#181c1e",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7fafc",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed-variant": "#39485c",
+                        "surface-tint": "#455f88",
+                        "surface": "#f7fafc",
+                        "background": "#f7fafc",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error": "#ffffff",
+                        "outline": "#74777f",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c4c6cf",
+                        "secondary-fixed": "#9ff5c1",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#adc7f7",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "secondary-fixed-dim": "#83d8a6",
+                        "surface-container-high": "#e5e9eb",
+                        "tertiary-container": "#28374a",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-background": "#181c1e",
+                        "secondary": "#2F855A",
+                        "surface-dim": "#d7dadc",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#86a0cd",
+                        "on-primary-fixed": "#001b3c",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-secondary-fixed-variant": "#005231",
+                        "primary-container": "#1a365d",
+                        "on-secondary-fixed": "#002111",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#b8c8e0",
+                        "tertiary-fixed": "#d4e4fc",
+                        "inverse-on-surface": "#eef1f3",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px",
+                        "stack-md": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "38px", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen flex flex-col pb-24">
+<!-- TopNavBar from JSON -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto bg-surface border-b border-outline-variant">
+<div class="font-display-lg-mobile md:font-display-lg text-headline-sm font-bold text-primary">
+            Puertas Automáticas Qro
+        </div>
+<nav class="hidden md:flex items-center gap-gutter">
+<!-- Labels from JSON: ["Servicios", "Sistemas", "Nosotros", "Garant\u00eda"] -->
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#sistemas">Sistemas</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#garantia">Garantía</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary-container text-on-primary font-label-bold text-label-bold rounded hover:opacity-80 transition-opacity" href="tel:+524424985702">
+            Llamar Ahora
+        </a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-20">
+<!-- High-Impact Hero Section -->
+<section class="relative bg-primary w-full flex items-center justify-center min-h-[800px] px-margin-mobile md:px-margin-desktop py-stack-lg overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-primary/80 mix-blend-multiply z-10"></div>
+<img alt="Modern automated gate" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdUsWamDqQp6hKym9_helzIoE313ZN7VuBkdsNgTCEv1u7tpKRkw3j1xXPqKnY2Bg2hHnWpVAkNDBraT5PVIZXS7WZBjA3FV-xSuP4OZBgeYXBXXJfmaB6fca8ev9kvUKgpmgwA6-4-vn3eMFHxK2Bry8e9U8QNSzjrb3iVxjYMODyJ-Dq88BqhNvyoCGC8P3WH7fc0g3Q-3LNu5XBIfLPu0tVR8Ktq7EGDt22WLkDlJYuJ-NC8eCc6g"/>
+</div>
+<div class="relative z-20 max-w-container-max mx-auto flex flex-col items-center text-center gap-stack-lg">
+<div class="inline-flex items-center gap-2 bg-primary-container/80 backdrop-blur-sm px-4 py-2 rounded-full border border-secondary/30">
+<span class="text-[#F59E0B] flex items-center">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-label-bold text-label-bold text-secondary-fixed">★ 5.0 (29 reseñas en Google Maps)</span>
+</div>
+<div class="flex flex-col gap-stack-sm max-w-4xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary font-bold">
+                        ¿Tu portón no abre y tu auto quedó atrapado? Lo resolvemos hoy.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-3xl mx-auto mt-4">
+                        Reparación, instalación y mantenimiento de portones automáticos en Querétaro. Técnicos expertos en Merik, Chamberlain y FAAC, con garantía por escrito.
+                    </p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mt-2">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface/10 rounded-full text-on-primary font-body-md text-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" data-icon="timer">timer</span>
+                        Atención prioritaria en emergencias
+                    </div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface/10 rounded-full text-on-primary font-body-md text-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" data-icon="verified">verified</span>
+                        Garantía por escrito
+                    </div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface/10 rounded-full text-on-primary font-body-md text-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" data-icon="payments">payments</span>
+                        Cotización sin costo
+                    </div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-6">
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white font-label-bold text-label-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg text-lg min-h-[56px] w-full sm:w-auto" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        Escríbenos por WhatsApp
+                    </a>
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-on-primary text-on-primary font-label-bold text-label-bold rounded-lg hover:bg-on-primary/10 transition-colors shadow-sm text-lg min-h-[56px] w-full sm:w-auto" href="tel:+524424985702">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                        Llamar al 442 498 5702
+                    </a>
+</div>
+</div>
+</section>
+<!-- URGENCY SECTION -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-primary max-w-container-max mx-auto my-stack-lg rounded-xl border-l-4 border-secondary shadow-xl">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="warning">warning</span>
+<h2 class="font-headline-md text-headline-md text-on-primary">¿Emergencia con tu portón? Atención Prioritaria</h2>
+</div>
+<p class="font-body-md text-body-md text-on-primary/90 mb-6">
+                        Portón caído, motor atascado, falla eléctrica o fotocelda desalineada. Sabemos que un portón que no cierra deja tu casa o negocio sin seguridad. Damos prioridad a las emergencias en toda la zona de Querétaro con tiempos de respuesta optimizados.
+                    </p>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+<li class="flex items-center gap-2 text-on-primary/90">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+                            Portón caído o descarrilado
+                        </li>
+<li class="flex items-center gap-2 text-on-primary/90">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+                            Motor atascado o quemado
+                        </li>
+<li class="flex items-center gap-2 text-on-primary/90">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+                            Falla eléctrica / no responde el control
+                        </li>
+<li class="flex items-center gap-2 text-on-primary/90">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+                            Fotocelda desalineada
+                        </li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white font-label-bold text-label-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-sm" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                            Reportar mi emergencia por WhatsApp
+                        </a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-container text-on-primary font-label-bold text-label-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-sm" href="tel:+524424985702">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                            Llamar ahora
+                        </a>
+</div>
+<p class="font-body-md text-sm text-on-primary/70 mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        Horario de atención: Lunes a Sábado hasta las 7:00 p.m.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid Style) -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest max-w-container-max mx-auto" id="servicios">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center">Nuestros Servicios</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Service 1 -->
+<div class="bg-surface border border-outline-variant rounded p-gutter flex flex-col hover:shadow-lg transition-shadow duration-300">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="build">build</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Instalación de Portones Automáticos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">
+                        Sistemas corredizos, abatibles y levadizos para uso residencial e industrial. Integración completa con rieles, motores y controles.
+                    </p>
+<a class="font-label-bold text-secondary hover:underline flex items-center gap-1" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">¿Dudas sobre qué sistema necesitas? Pregúntanos por WhatsApp →</a>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface border border-outline-variant rounded p-gutter flex flex-col hover:shadow-lg transition-shadow duration-300">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Mantenimiento Preventivo y Correctivo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">
+                        Ajuste de resortes, calibración de motores, lubricación de engranajes y reemplazo de piezas de desgaste continuo.
+                    </p>
+<a class="font-label-bold text-secondary hover:underline flex items-center gap-1" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">¿Dudas sobre qué sistema necesitas? Pregúntanos por WhatsApp →</a>
+</div>
+<!-- Service 3 -->
+<div class="bg-surface border border-outline-variant rounded p-gutter flex flex-col hover:shadow-lg transition-shadow duration-300">
+<div class="w-12 h-12 rounded bg-error-container flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-on-error-container" data-icon="warning">warning</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Reparaciones de Emergencia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">
+                        Respuesta rápida para fallas eléctricas, motores atascados, fotoceldas desalineadas o portones caídos. Servicio en área de Qro.
+                    </p>
+<a class="font-label-bold text-secondary hover:underline flex items-center gap-1" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">¿Dudas sobre qué sistema necesitas? Pregúntanos por WhatsApp →</a>
+</div>
+<!-- Service 4 -->
+<div class="bg-surface border border-outline-variant rounded p-gutter flex flex-col hover:shadow-lg transition-shadow duration-300">
+<div class="w-12 h-12 rounded bg-secondary-fixed flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="router">router</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Accesorios y Automatización</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-4">
+                        Controles remotos adicionales, sensores de seguridad, botoneras, y sistemas de apertura vía smartphone o WiFi.
+                    </p>
+<a class="font-label-bold text-secondary hover:underline flex items-center gap-1" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">¿Dudas sobre qué sistema necesitas? Pregúntanos por WhatsApp →</a>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto border-t border-outline-variant" id="sistemas">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center">Sistemas de Portones: Elige el ideal para ti</h2>
+<div class="overflow-x-auto rounded border border-outline-variant">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary text-on-primary">
+<th class="p-4 font-label-bold text-label-bold border-b border-outline-variant">Sistema</th>
+<th class="p-4 font-label-bold text-label-bold border-b border-outline-variant">Aplicación Ideal</th>
+<th class="p-4 font-label-bold text-label-bold border-b border-outline-variant">Ventaja Principal</th>
+</tr>
+</thead>
+<tbody class="bg-surface-container-lowest">
+<tr class="border-b border-surface-variant hover:bg-surface transition-colors">
+<td class="p-4 font-body-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="swap_horiz">swap_horiz</span>
+                                Corredizo / Ascendente
+                            </td>
+<td class="p-4 font-body-md text-on-surface-variant">Residencial e Industrial</td>
+<td class="p-4 font-body-md text-on-surface-variant">Optimización de espacio y alta durabilidad.</td>
+</tr>
+<tr class="border-b border-surface-variant hover:bg-surface transition-colors bg-surface-container-low">
+<td class="p-4 font-body-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="door_open">door_open</span>
+                                Abatible / Pivotante
+                            </td>
+<td class="p-4 font-body-md text-on-surface-variant">Residencial y Cerradas</td>
+<td class="p-4 font-body-md text-on-surface-variant">Apertura rápida y excelente estética.</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="p-4 font-body-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="unfold_more">unfold_more</span>
+                                Levadizo / Seccional
+                            </td>
+<td class="p-4 font-body-md text-on-surface-variant">Cocheras y Garajes</td>
+<td class="p-4 font-body-md text-on-surface-variant">Funcionamiento silencioso, sellado hermético y alta seguridad.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 text-center">
+<a class="font-label-bold text-secondary hover:underline inline-flex items-center gap-1" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">¿Dudas sobre qué sistema necesitas? Pregúntanos por WhatsApp →</a>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container max-w-container-max mx-auto mt-stack-lg" id="nosotros">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center">¿Por qué elegirnos?</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col items-center text-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified" style="font-size: 48px;">verified</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Experiencia Técnica</h3>
+<p class="font-body-md text-on-surface-variant">
+                        Manejamos las principales marcas del mercado (Merik, Chamberlain, FAAC, etc.) asegurando instalaciones bajo normativas.
+                    </p>
+</div>
+<div class="flex flex-col items-center text-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="flash_on" style="font-size: 48px;">flash_on</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Respuesta Rápida</h3>
+<p class="font-body-md text-on-surface-variant">
+                        Cobertura total en el área de Querétaro y alrededores, con tiempos de respuesta optimizados para emergencias.
+                    </p>
+</div>
+<div class="flex flex-col items-center text-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="shield" style="font-size: 48px;">shield</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Garantía por Escrito</h3>
+<p class="font-body-md text-on-surface-variant">
+                        Todos nuestros trabajos de instalación y reparación cuentan con garantía por escrito para su total tranquilidad.
+                    </p>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS SECTION -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest max-w-container-max mx-auto border-t border-outline-variant">
+<div class="flex flex-col items-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-4">Lo que dicen nuestros clientes en Querétaro</h2>
+<div class="inline-flex items-center gap-2 bg-primary-container px-4 py-2 rounded-full">
+<span class="text-[#F59E0B] flex items-center">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-label-bold text-label-bold text-on-primary">★ 5.0 en Google Maps</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Testimonial 1 -->
+<div class="bg-primary rounded-xl p-6 text-on-primary shadow-lg border border-primary-container">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">L</div>
+<div>
+<h4 class="font-label-bold">Laura M.</h4>
+<p class="text-sm opacity-80">(Vista Alegre)</p>
+</div>
+</div>
+<div class="text-[#F59E0B] flex mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md opacity-90 italic">"Mi portón corredizo se quedó atascado... Llegaron rapidísimo..."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-primary rounded-xl p-6 text-on-primary shadow-lg border border-primary-container">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">R</div>
+<div>
+<h4 class="font-label-bold">Ing. Ricardo T.</h4>
+<p class="text-sm opacity-80">(El Marqués)</p>
+</div>
+</div>
+<div class="text-[#F59E0B] flex mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md opacity-90 italic">"Instalaron el portón levadizo... Profesionales, puntuales..."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-primary rounded-xl p-6 text-on-primary shadow-lg border border-primary-container">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">M</div>
+<div>
+<h4 class="font-label-bold">Mariana G.</h4>
+<p class="text-sm opacity-80">(Juriquilla)</p>
+</div>
+</div>
+<div class="text-[#F59E0B] flex mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md opacity-90 italic">"El portón abatible fallaba... Diagnosticaron el mismo día..."</p>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto border-t border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center">Preguntas Frecuentes</h2>
+<div class="max-w-3xl mx-auto flex flex-col gap-4">
+<!-- FAQ Item 1 -->
+<div class="border border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<h3 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="help">help</span>
+                        ¿En cuánto tiempo atienden una emergencia?
+                    </h3>
+<p class="font-body-md text-on-surface-variant">Damos prioridad a las emergencias y buscamos atender los reportes el mismo día en la zona metropolitana de Querétaro, dependiendo de la disponibilidad y horario del reporte.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<h3 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="help">help</span>
+                        ¿Qué marcas de motores reparan e instalan?
+                    </h3>
+<p class="font-body-md text-on-surface-variant">Somos expertos en las principales marcas del mercado como Merik, Chamberlain, FAAC, BFT, entre otras.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<h3 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="help">help</span>
+                        ¿Sus trabajos cuentan con garantía?
+                    </h3>
+<p class="font-body-md text-on-surface-variant">Sí, todos nuestros trabajos de instalación y reparación cuentan con garantía por escrito para brindarle total tranquilidad.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<h3 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="help">help</span>
+                        ¿La cotización tiene algún costo?
+                    </h3>
+<p class="font-body-md text-on-surface-variant">Ofrecemos cotizaciones sin costo. Puede contactarnos por WhatsApp o llamada para agendar una visita técnica o enviarnos fotos/videos de su portón para una evaluación inicial.</p>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border border-outline-variant rounded-lg p-4 bg-surface-container-lowest">
+<h3 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="help">help</span>
+                        ¿En qué zonas de Querétaro dan servicio?
+                    </h3>
+<p class="font-body-md text-on-surface-variant">Brindamos servicio en toda la zona metropolitana de Querétaro y sus alrededores, incluyendo Juriquilla, El Marqués, Corregidora, etc.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-tertiary">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-stack-md">
+<div class="font-display-lg-mobile md:font-display-lg text-headline-sm font-bold text-on-tertiary">
+                Puertas Automáticas Qro
+            </div>
+<p class="font-body-md text-body-md text-on-tertiary opacity-80">
+                Soluciones profesionales de automatización.
+            </p>
+<div class="inline-flex items-center gap-1 bg-surface-container/10 px-3 py-1 rounded w-fit mt-2">
+<span class="text-[#F59E0B] flex items-center">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-label-bold text-sm text-on-tertiary">★ 5.0 en Google</span>
+</div>
+</div>
+<div class="col-span-1 flex flex-col gap-stack-sm">
+<h4 class="font-label-bold text-label-bold text-on-tertiary">Servicios Rápidos</h4>
+<ul class="flex flex-col gap-2 mt-2">
+<li><a class="font-body-md text-on-tertiary-container hover:text-secondary transition-colors" href="#">Instalación</a></li>
+<li><a class="font-body-md text-on-tertiary-container hover:text-secondary transition-colors" href="#">Mantenimiento</a></li>
+<li><a class="font-body-md text-on-tertiary-container hover:text-secondary transition-colors" href="#">Reparación de Emergencia</a></li>
+<li><a class="font-body-md text-on-tertiary-container hover:text-secondary transition-colors" href="#">Accesorios</a></li>
+<li><a class="font-body-md text-on-tertiary-container hover:text-secondary transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-stack-sm">
+<h4 class="font-label-bold text-label-bold text-on-tertiary">Contacto y Ubicación</h4>
+<div class="flex flex-col gap-2 mt-2 font-body-md text-on-tertiary-container">
+<p class="flex items-start gap-2">
+<span class="material-symbols-outlined text-on-tertiary opacity-70" data-icon="location_on">location_on</span>
+                    Torrecillas 213, Vista Alegre, Querétaro.<br/>
+<span class="text-sm opacity-70">Plus Code: HJ7F+62 Santiago de Querétaro</span>
+</p>
+<p class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-on-tertiary opacity-70" data-icon="phone">phone</span>
+                    +52 442 498 5702
+                </p>
+<p class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-on-tertiary opacity-70" data-icon="schedule">schedule</span>
+                    Lunes a Sábado, abierto hasta las 7:00 p.m.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 mt-4 w-fit">
+<a class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-secondary text-white font-label-bold text-label-bold rounded hover:bg-opacity-90 transition-opacity" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                    Cotiza gratis por WhatsApp
+                </a>
+<a class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white font-label-bold text-label-bold rounded hover:bg-opacity-90 transition-opacity" href="tel:+524424985702">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                    Llámanos: 442 498 5702
+                </a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-stack-lg pt-stack-sm border-t border-on-tertiary/20">
+<p class="font-body-md text-body-md text-on-tertiary opacity-60 text-center md:text-left">
+                © 2024 Puertas Automáticas Qro. Todos los derechos reservados. Vista Alegre, Querétaro.
+            </p>
+</div>
+</footer>
+<!-- STICKY FLOATING BUTTON -->
+<div class="fixed bottom-0 left-0 w-full z-50 p-4 bg-surface/90 backdrop-blur-md border-t border-outline-variant shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex justify-center gap-4 md:hidden">
+<a class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-white font-label-bold rounded-lg shadow-lg" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+            WhatsApp
+        </a>
+<a class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white font-label-bold rounded-lg shadow-lg" href="tel:+524424985702">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+            Llamar
+        </a>
+</div>
+<!-- Desktop Sticky Button (Optional floating style) -->
+<div class="hidden md:flex fixed bottom-6 right-6 z-50 flex-col gap-3">
+<a class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-secondary text-white font-label-bold rounded-full shadow-xl hover:scale-105 transition-transform" href="https://wa.me/524424985702?text=Hola,%20necesito%20ayuda%20con%20mi%20port%C3%B3n%20autom%C3%A1tico">
+<span class="material-symbols-outlined text-2xl" data-icon="chat">chat</span>
+            WhatsApp
+        </a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary text-white font-label-bold rounded-full shadow-xl hover:scale-105 transition-transform" href="tel:+524424985702">
+<span class="material-symbols-outlined text-2xl" data-icon="call">call</span>
+            Llamar
+        </a>
+</div>
+</body></html>
