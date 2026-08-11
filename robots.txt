@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://puertasautomaticasqro.com/sitemap.xml
